@@ -11,5 +11,9 @@ The project is divided into two apps - accounts and entries.
 
 Tech stack: python, django, javascript, jquery, html, bootstrap, sass. 
 
+# Side note
+In this repo there is sqlite database with a pre-created superuser for you to try (credentials: superuser/password1234), unlike the deployed version that uses Postgresql.
+
 # Important
-If you are about the clone the repo and run the app, note that the localization is made possible thanks to gettext. I could not include it in the requirements, bucause I didn't make it work that way. On Windows 8.1 I had some hard time trying to make it work, other systems might have it easier - anyway, if you don't have gettext already installed on your machine, check this https://stackoverflow.com/questions/27220052/django-i18n-make-sure-you-have-gnu-gettext-tools and if you are on Windows, check also this: https://stackoverflow.com/questions/18985482/how-to-install-gnu-gettext-on-windows-7
+To run Perdi on your machine, you need to have GETTEXT installed on it.
+https://stackoverflow.com/questions/27220052/django-i18n-make-sure-you-have-gnu-gettext-tools https://stackoverflow.com/questions/18985482/how-to-install-gnu-gettext-on-windows-7
