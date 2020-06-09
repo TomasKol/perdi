@@ -1,0 +1,44 @@
+{% extends 'entries/entries_index.html' %}
+{% load static i18n %}
+{% block content %}
+
+
+<h3 class="text-center">{% trans 'add language' %}</h3>
+<form action="{% url 'entries:add_language' %}" method="POST" class="site-form">
+  {% csrf_token %}
+
+  {{ form.name }}
+  {% if form.errors.name %}
+  <div class="alert alert-danger">{{ form.errors.name }}</div>
+  {% endif %}
+
+  {{ form.abbreviation }}
+  {% if form.errors.abbreviation %}
+  <div class="alert alert-danger">{{ form.errors.abbreviation }}</div>
+  {% endif %}
+
+  <input type="text" name="articles" placeholder="{% trans 'comma, separated, articles' %}" title="{% trans 'comma-separated articles (e.g. a, an, the)' %}">
+
+  <button type="submit" class="btn btn-outline-info btn-block">{% trans 'create' %}</button>
+
+  {% if form.non_field_errors %}
+  <div class="alert alert-danger">
+  {{ form.non_field_errors }}
+  </div>
+  {% endif %}
+
+  {% if duplicit %}
+  <div class="alert alert-danger">
+  {{ abbreviation }} {% trans 'is aready in your languages' %}.
+  </div>
+  {% endif %}
+
+</form>
+
+<div class="text-justify mt-3">
+  <p><b>{% trans 'Language' %}</b>: {% trans 'the name of the foreign language' %}.</p>
+  <p><b>{% trans 'Abbreviation' %}</b>: {% trans "a short version of the language's name. Up to 4 characters. Will be used throughout the entire perdi application" %}.</p>
+  <p><b>{% trans 'Articles' %}</b>: {% trans 'if the language uses articles, write them all, separated by a comma. E.g. el, la, los, las' %}.</p>
+</div>
+
+{% endblock %}

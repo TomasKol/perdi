@@ -1,0 +1,67 @@
+{% extends 'entries/entries_navbar.html' %}
+{% load static %}
+
+{% block queries %}
+{% for entry in entries %}
+<div class="entry-container mt-3" data-name="{{ entry.name|lower }}" data-topic="{{ entry.topic.name }}">
+
+  <div class="entry-basic toggled px-2" data-id="{{ entry.id }}">
+    <div class="d-flex justify-content-between">
+      
+      <div>
+        <b>{{ entry.full_name }}</b> - 
+        {% for translation in entry.translations.all %}
+        {{ translation.content }},
+        {% endfor %}
+      </div>
+      
+      <div>
+        <i data-feather="more-horizontal" class="toggler toggler-detail" data-id="{{ entry.id }}"></i>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="entry-detail toggled px-2" data-id="{{ entry.id }}" style="display: none;">
+    <div class="d-flex justify-content-between">
+      <div>
+
+        <div>
+          <b>{{ entry.full_name }}</b> 
+          <i>{{ entry.commentary }}</i>
+          {% if entry.topic %}
+            ({{ entry.topic.name }})
+          {% endif %}
+        </div>
+        
+          {% for translation in entry.translations.all %}
+          <div>
+            <span class="pl-2">
+              <span class="mb-1">
+                <i data-feather="play"></i>
+              </span>
+              {{ translation.content }}
+            </span>
+            {% if translation.note %}- <i>{{ translation.note}}</i> {% endif %}
+          </div>
+          {% endfor %}
+      
+      </div>
+            
+      <div class="d-flex flex-column pb-2">
+        <i data-feather="more-horizontal" class="toggler toggler-detail mb-2" data-id="{{ entry.id }}"></i>
+        <a href="{% url 'entries:edit_entry' entry.id %}" class="p-1">
+          <i data-feather="edit"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,163 @@
+{% extends 'entries/entries_index.html' %}
+{% load static i18n %}
+
+{% block content %}
+<div class="text-center pb-0">
+  <a href="{% url 'entries:edit_language' user.profile.current_language.id %}">
+    {{ user.profile.current_language.name }}
+  </a>
+</div>
+
+<h3 class="text-center">{{ entry.full_name}} | {{ entry.language.abbreviation }} </h3>
+
+<form action="" name="edit-entry" method="POST" class="site-form">
+  <!-- the form's name does nothing except for fixing a firefox problem in select.option.selected -->
+  {% csrf_token %}
+
+
+  {% if articles.1 %}
+  <select required name="article" id="" class="custom-select">
+    {% for article in articles %}
+    <option class="article-option" value="{{ article.id }}"
+      {% if article == entry.article %} selected="selected" {% endif %}
+    >{{ article.name }}</option>;
+    {% endfor %}
+  </select>
+  {% else %}
+  <input type="hidden" name="article" value="{{ articles.0.id }}">
+  {% endif %}
+
+  {{ entry_form.name }}
+  {% if entry_form.errors.name %}
+  <div class="alert alert-danger">{{ entry_form.errors.name }}</div>
+  {% endif %}
+
+  {{ entry_form.commentary }}
+  {% if entry_form.errors.commentary %}
+  <div class="alert alert-danger">{{ entry_form.errors.commentary }}</div>
+  {% endif %}
+
+  {% if entry_integrity_error %}
+  <div class="alert alert-danger pt-0">
+    {{ entry_integrity_error }}
+  </div>
+  {% endif %}
+
+  {% if topics %}
+  <select name="topic" id="" class="custom-select">
+    <option class="topic-option" value=""
+    {% if not entry.topic %} selected="selected"{% endif %}
+    >{% trans '(no topic)' %}</option>
+    {% for topic in topics %}
+    <option class="topic-option" value="{{ topic.id }}"
+      {% if topic == entry.topic %} selected="selected" {% endif %}
+    >{{ topic.name }}</option>;
+    {% endfor %}
+  </select>
+  {% endif %}
+
+  <button type="submit" class="btn btn-outline-info btn-block">{% trans 'save changes' %}</button>
+
+</form>
+
+<!-- translations -->
+<!-- add translation -->
+<form action="{% url 'entries:add_translation' entry.id %}" method="POST" class="site-form">
+  <hr>
+  <h3 class="text-center">{% trans 'add translation' %}</h3>
+  {% csrf_token %}
+
+  {{ translation_form.content }}
+  {% if translation_form.errors.content %}
+  <div class="alert alert-danger pt-0">{{ translation_form.errors.content }}</div>
+  {% endif %}
+
+  {{ translation_form.note }}
+  {% if translation_form.errors.note %}
+  <div class="alert alert-danger pt-0">{{ translation_form.errors.note }}</div>
+  {% endif %}
+
+  {% if translation_form.non_field_errors %}
+  <div class="alert alert-danger pt-0">{{ translation_form.non_field_errors }}</div>
+  {% endif %}
+
+  {% if translation_integrity_error %}
+  <div class="alert alert-danger pt-0">{{ translation_integrity_error }}</div>
+  {% endif %}
+
+
+  <div class="text-justify">*{% trans 'one translation at a time' %}</div>
+  <button type="submit" class="btn btn-outline-info btn-block my-3">{% trans 'add translation' %}</button>
+</form>
+
+<!-- edit translations  -->
+{% if translations_bool %}
+<form action="{% url 'entries:edit_translations' entry.id %}" method="POST" class="site-form">
+  <hr>
+  <h3 class="text-center">{% trans 'edit translations' %}</h3>
+  {% csrf_token %}
+  {{ translations_formset.management_form }}
+  {% for form in translations_formset %}
+
+  {{ form.id }}
+  <div class="d-flex justify-content-between align-item-center mt-3">
+
+    <div class="pr-2">
+      {{ form.content }}
+      {% if form.errors.content %}
+      <div class="alert alert-danger pt-0">{{ form.errors.content }}</div>
+      {% endif %}  
+    </div>
+    
+    <button 
+      type="button"  
+      class="delete delete-translation btn btn-outline-danger button-naked btn-block button-short"
+      data-id="{{ form.id.value }}"
+      data-url="{% url 'entries:delete_translation' %}"
+      data-name="{{ form.content.value }}"
+      data-redirect="{% url 'entries:edit_entry' entry.id %}"
+      data-model="translation"
+      ><i data-feather="x"></i>
+    </button>
+
+  </div>
+
+  <div>
+    {{ form.note }}
+    {% if form.errors.note %}
+    <div class="alert alert-danger pt-0">{{ form.errors.note }}</div>
+    {% endif %}   
+  </div>
+
+  {% if form.non_field_errors %}
+  <div class="alert alert-danger pt-0">{{ form.non_field_errors }}</div>
+  {% endif %}
+
+  {% endfor %}
+
+  {% if translation_edit_integrity_error %}
+  <div class="alert alert-danger pt-0">{{ translation_edit_integrity_error }}</div>
+  {% endif %}
+  
+  <button type="submit" class="btn btn-outline-info btn-block mt-3">{% trans 'save all translations' %}</button>
+
+  <hr>
+</form>
+{% endif %}
+
+<button 
+  type="button" 
+  class="delete site-form delete-entry btn btn-outline-danger btn-block mt-3"
+  data-name="{{ entry.name }}"
+  data-id="{{ entry.id }}"
+  data-url="{% url 'entries:delete_entry' %}"
+  data-redirect="{% url 'entries:index' %}"
+  data-model="entry"
+  ><b>{% trans 'delete' %}</b> {{ entry.full_name }}
+</button>
+
+<form id="get-token" hidden>
+  {% csrf_token %}
+</form>
+
+{% endblock %}

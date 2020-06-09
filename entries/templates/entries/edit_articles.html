@@ -1,0 +1,58 @@
+{% extends 'entries/entries_index.html' %}
+{% load static i18n %}
+{% block content %}
+
+<div class="text-center">
+  <a href="{% url 'entries:edit_language' lang_id %}" class="text-center mb-0">{{ lang_name }}</a>
+</div>
+
+<form action="{% url 'entries:add_articles' lang_id %}" method="POST" class="site-form">
+  {% csrf_token %}
+  <h3 class="text-center">{% trans 'add articles' %}</h3>
+  <input required type="text" class="" name="articles" placeholder="{% trans 'comma, separated, articles' %}" title="{% trans 'comma-separated articles (e.g. a, an, the)' %}">
+  <div class="text-justify">*{% trans "new articles separated by a comma. E.g. 'el, la, los, las'. Note that max length of one article is 5 characters" %}.</div>
+  <button type="submit" class="btn btn-outline-info btn-block my-3">{% trans 'add articles' %}</button>
+</form>
+
+{% if articles_length %}
+<hr>
+<form action="{% url 'entries:edit_articles' lang_id %}" method="POST" class="site-form">
+  {% csrf_token %}
+  {{ formset.management_form }}
+  <h3 class="text-center">{% trans 'edit articles' %}</h3>
+
+  {% for form in formset %}
+  {{ form.id }}
+  <div class="d-flex justify-content-between align-item-center mt-3">
+    <div class="pr-2">{{ form.name }}</div>
+    <button 
+      type="button"  
+      class="delete delete-article btn btn-outline-danger button-naked btn-block button-short"
+      data-id="{{ form.id.value }}"
+      data-url="{% url 'entries:delete_article' %}"
+      data-name="{{ form.name.value }}"
+      data-redirect="{% url 'entries:edit_articles' lang_id %}"
+      data-model="article"
+      ><i data-feather="x"></i>
+    </button>
+  </div>
+
+  {% if form.errors %}
+  <div class="alert alert-danger pt-0">{{ form.errors.name }}</div>
+  {% endif %}
+
+  {% endfor %}
+
+  {% if integrity_error %}
+  <div class="alert alert-danger mt-3">{{ integrity_error }}</div>
+  {% endif %}
+
+  <button type="submit" class="btn btn-outline-info btn-block mt-3">{% trans 'save all' %}</button>
+</form>
+
+<form id="get-token" hidden>
+  {% csrf_token %}
+</form>
+{% endif %}
+
+{% endblock %}

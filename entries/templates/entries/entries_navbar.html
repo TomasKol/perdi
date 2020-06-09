@@ -1,0 +1,66 @@
+{% extends 'entries/entries_index.html' %}
+{% load static i18n %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between px-1">
+
+  <div class="d-flex">
+
+    {% if user.profile.current_language %}
+    <div class="mt-1" onclick="localStorage.removeItem('search_topic');">
+      <a href="{% url 'accounts:toggle_current_language' next_view='entries' %}"  class="current-language px-1 pt-1">
+        {{ user.profile.current_language.abbreviation }}
+      </a>
+    </div>
+    {% endif %}
+    
+    {% if user.profile.translate_by_home_lang %}
+    <div class="align-self-start">
+      <a href="{% url 'accounts:toggle_translation_direction' %}" class="current-language">
+        <div>
+          <i data-feather="arrow-left"></i>
+          <i data-feather="home"></i>
+        </div>
+      </a>
+    </div>
+
+    {% else %}
+    <a href="{% url 'accounts:toggle_translation_direction' %}" class="current-language">
+      <div>
+        <i data-feather="arrow-right"></i>
+        <i data-feather="home"></i>
+      </div>
+    </a>
+    {% endif %}
+
+  </div>
+
+  <div>
+    <input id="search-string" type="search" placeholder= "{% trans 'search...' %}" autofocus="on">
+  </div>
+
+  {% if user.profile.current_language.topics.all %}
+  <div>
+    <select name="search-topic" id="search-topic" class="custom-select">
+      <option class="search-topic-option" value="">{% trans 'all topics' %}</option>
+      {% for topic in user.profile.current_language.topics.all %}
+      <option class="search-topic-option" value="{{ topic.name }}">{{ topic.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {% endif %}
+
+  <div class="pt-1" id="search-plus-container">
+    <a href="{% url 'entries:add_entry' %}" class="p-1 pb-2">
+      <i data-feather="plus"></i>
+    </a>
+  </div>
+
+</div>
+
+{% block queries %}
+
+{% endblock %}
+
+{% endblock %}

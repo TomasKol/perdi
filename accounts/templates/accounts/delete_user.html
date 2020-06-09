@@ -1,0 +1,23 @@
+{% extends 'accounts/accounts_index.html' %}
+{% load static i18n %}
+{% block content %}
+
+<h3 class="centered">{% trans 'delete my perdi account' %}</h3>
+<p class="text-center">{% trans "To make sure it's really you, fill in your login credentials." %}</p>
+<form class="site-form" action="{% url 'accounts:delete_user' %}" method="POST">
+  {% csrf_token %}
+
+  {{ form.username }}
+  {{ form.password }}
+  <div class="alert alert-danger">
+    {% trans 'Your account will be deleted <i>permanently</i> along with all your data and content.' %}
+  </div>
+  <button type="submit" class="btn btn-outline-danger btn-block">{% trans 'delete account' %}</button>
+  {% if form.errors or custom_error %}
+  <div class="alert alert-danger">
+    {% trans 'incorrect credentials' %} 
+  </div>
+  {% endif %}
+</form>
+
+{% endblock %}

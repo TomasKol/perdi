@@ -1,0 +1,141 @@
+body {
+  background-image: url("/static/back.png");
+  margin: 0 auto;
+  max-width: 500px;
+  min-width: 330px;
+}
+
+a {
+  color: #17a2b8;
+}
+
+a.a-lang {
+  vertical-align: center;
+  line-height: 1.75rem;
+}
+
+a:hover {
+  color: #082f35;
+  text-decoration: none;
+}
+
+.centered, input[type=text], input[type=password], input[type=number], input[type=search], .custom-select, textarea, .alert, .btn, .site-form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centered {
+  text-align: center;
+}
+
+input[type=text], input[type=password], input[type=number], input[type=search], .custom-select, textarea, .alert, .btn {
+  border-radius: 10% 20% 10% 20%;
+  width: 100%;
+}
+
+*:focus {
+  outline: 0;
+  -webkit-box-shadow: 0px 0px 3px #17a2b8, inset 0px 0px 3px #17a2b8;
+          box-shadow: 0px 0px 3px #17a2b8, inset 0px 0px 3px #17a2b8;
+}
+
+input[type=checkbox]:focus {
+  -webkit-box-shadow: 0px 0px 15px #17a2b8, inset 0px 0px 5px #17a2b8;
+          box-shadow: 0px 0px 15px #17a2b8, inset 0px 0px 5px #17a2b8;
+  outline: 1px dotted #17a2b8;
+}
+
+input[type=text], input[type=password], input[type=number], input[type=search], .custom-select, textarea {
+  border: 1px solid rgba(128, 128, 128, 0.6);
+  padding: 5px;
+  margin-bottom: 1px;
+}
+
+.custom-select {
+  padding-right: 25px;
+  height: 98%;
+}
+
+@media (max-width: 500px) {
+  #search-string {
+    width: 5rem;
+    margin: 0 3px;
+  }
+  #search-topic {
+    width: 6rem;
+    margin: 0 3px;
+  }
+}
+
+.home-icon {
+  padding-bottom: 35px;
+}
+
+.border-b {
+  border-bottom: 1px solid #17a2b8;
+}
+
+.errorlist {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.alert {
+  background-color: transparent;
+  text-align: justify;
+}
+
+.site-form {
+  max-width: 260px;
+}
+
+.button-short {
+  max-width: 50px;
+}
+
+.button-naked {
+  border: none;
+}
+
+.current-language {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.li-without-marker {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.feather-play {
+  height: 12px;
+  padding-bottom: 2px;
+}
+
+.entry-detail {
+  background-color: rgba(215, 240, 247, 0.4);
+}
+
+textarea {
+  width: 100%;
+}
+
+#change-language-toggle {
+  color: #17a2b8;
+}
+
+#change-language-toggle:hover {
+  color: #082f35;
+  cursor: pointer;
+}
+
+.form-low {
+  height: 30px;
+}
+
+.link-danger {
+  color: #721c24;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,22 @@
+{% extends 'accounts/accounts_index.html' %}
+{% load static i18n %}
+{% block content %}
+
+<h3 class="centered">perdi</h3>
+<form class="site-form" action="{% url 'accounts:login' %}" method="POST">
+  {% csrf_token %}
+  {{ form.username }}
+  {{ form.password }}
+  <button type="submit" class="btn btn-outline-info btn-block">{% trans 'Log in' %}</button>
+  <p class="text-center mt-3">{% trans 'No account yet?' %} <a href="{% url 'accounts:register' %}">{% trans 'Sign up' %}</a>.</p>
+  {% if form.errors %}
+  <div class="alert alert-danger">
+    {{ form.errors.username }}
+    {{ form.errors.password }}
+    {{ form.non_field_errors }}
+  </div>
+  {% endif %}
+</form>
+
+
+{% endblock %}

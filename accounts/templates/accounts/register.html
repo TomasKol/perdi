@@ -1,0 +1,25 @@
+{% extends 'accounts/accounts_index.html' %}
+{% load static i18n %}
+{% block content %}
+
+<h3 class="centered">{% trans 'register to perdi' %}</h3>
+<form class="site-form" action="{% url 'accounts:register' %}" method="POST">
+  {% csrf_token %}
+  {{ form.username }}
+  {{ form.password1 }}
+  {{ form.password2 }}
+  <button type="submit" class="btn btn-outline-info btn-block">{% trans 'Sign up' %}</button>
+  <p class="text-center mt-3">{% trans 'Already registered?' %} <a href="{% url 'accounts:login' %}">{% trans 'Log in' %}</a>.</p>
+  {% if form.errors %}
+  <div class="alert alert-danger">
+    {{ form.errors.username }}
+    {{ form.errors.password1 }}
+    {{ form.errors.password2 }}
+    {{ form.non_field_errors }}
+  </div>
+  {% endif %}
+  <p class="text-justify">{% trans 'Because we do not ask for your email address, we will not be able to reset your password should you ever forget it. In other words - if you forget your password, there is no way you can access your perdi account anymore.' %}</p>
+</form>
+
+
+{% endblock %}

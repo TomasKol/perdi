@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-04 16:54+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n "
+">= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+#: .\forms.py:8 .\forms.py:20
+msgid "username"
+msgstr "užívateľské meno"
+
+#: .\forms.py:10 .\forms.py:22
+msgid "password"
+msgstr "heslo"
+
+#: .\forms.py:12
+msgid "confirm password"
+msgstr "potvrď heslo"
+
+#: .\forms.py:30
+msgid "old password"
+msgstr "staré heslo"
+
+#: .\forms.py:32
+msgid "new password"
+msgstr "nové heslo"
+
+#: .\forms.py:34
+msgid "confirm new password"
+msgstr "potvrď nové heslo"
+
+#: .\templates\accounts\accounts_index.html:3
+msgid "en"
+msgstr "sk"
+
+#: .\templates\accounts\accounts_index.html:4
+msgid "Perdi - personal dictionary"
+msgstr "Perdi - osobný slovník"
+
+#: .\templates\accounts\change_password.html:10
+#: .\templates\accounts\change_password.html:17
+#: .\templates\accounts\settings.html:34
+msgid "change password"
+msgstr "zmeniť heslo"
+
+#: .\templates\accounts\delete_user.html:5
+msgid "delete my perdi account"
+msgstr "vymazať môj perdi účet"
+
+#: .\templates\accounts\delete_user.html:6
+msgid "To make sure it's really you, fill in your login credentials."
+msgstr "Aby sme si boli istí, že si to ty, vyplň svoje prihlasovacie údaje."
+
+#: .\templates\accounts\delete_user.html:13
+msgid ""
+"Your account will be deleted <i>permanently</i> along with all your data and "
+"content."
+msgstr ""
+"Tvoj účet bude vymazaný <i>permanentne</i> a s ním všetky tvoje dáta a "
+"uložený obsah."
+
+#: .\templates\accounts\delete_user.html:15
+#: .\templates\accounts\settings.html:42
+msgid "delete account"
+msgstr "vymazať účet"
+
+#: .\templates\accounts\delete_user.html:18
+msgid "incorrect credentials"
+msgstr "nesprávne údaje"
+
+#: .\templates\accounts\login.html:10 .\templates\accounts\register.html:12
+msgid "Log in"
+msgstr "Prihlás sa"
+
+#: .\templates\accounts\login.html:11
+msgid "No account yet?"
+msgstr "Ešte nemáš účet?"
+
+#: .\templates\accounts\login.html:11 .\templates\accounts\register.html:11
+msgid "Sign up"
+msgstr "Zaregistruj sa"
+
+#: .\templates\accounts\register.html:5
+msgid "register to perdi"
+msgstr "vytvorenie perdi účtu"
+
+#: .\templates\accounts\register.html:12
+msgid "Already registered?"
+msgstr "Už máš účet?"
+
+#: .\templates\accounts\register.html:21
+msgid ""
+"Because we do not ask for your email address, we will not be able to reset "
+"your password should you ever forget it. In other words - if you forget your "
+"password, there is no way you can access your perdi account anymore."
+msgstr ""
+"Keďže nechceme tvoju emailovú adresu, nebudeme vedieť obnoviť tvoje heslo v "
+"prípade, že ho zabudneš. Inými slovami - ak zabudneš svoje heslo, nebudeš sa "
+"viac môcť prihlásiť do svojho účtu."
+
+#: .\templates\accounts\settings.html:4
+msgid "my account"
+msgstr "nastavenia účtu"
+
+#: .\templates\accounts\settings.html:7
+msgid "display perdi in"
+msgstr "používaj perdi v jazyku"
+
+#: .\templates\accounts\settings.html:38
+msgid "log out"
+msgstr "odhlásiť sa"
+
+#: .\views.py:59
+msgid "Your password has been changed."
+msgstr "Heslo bolo zmenené."
+
+#~ msgid "delete my account"
+#~ msgstr "vymazať môj účet"

@@ -1,0 +1,60 @@
+{% extends 'entries/entries_index.html' %}
+{% load static i18n %}
+{% block content %}
+
+<div class="text-center">
+  <a href="{% url 'entries:edit_language' lang_id %}" class="text-center mb-0">{{ lang_name }}</a>
+</div>
+
+  
+<form action="{% url 'entries:add_topics' lang_id %}" method="POST" class="site-form">
+  {% csrf_token %}
+  {{ formset.management_form }}
+  <h3 class="text-center">{% trans 'add topics' %}</h3>
+  <input required type="text" class="" name="topics" placeholder="{% trans 'comma, separated, topics' %}" title="{% trans 'comma-separated topics (e.g. art, sport, cuisine)' %}">
+  <div class="text-justify">*{% trans 'new topics separated by a comma. E.g. art, sport, cuisine' %}.</div>
+  <button type="submit" class="btn btn-outline-info btn-block my-3">{% trans 'add topics' %}</button>
+</form>
+
+{% if topics_length %}
+<hr>
+<form action="{% url 'entries:edit_topics' lang_id %}" method="POST" class="site-form">
+  {% csrf_token %}
+  {{ formset.management_form }}
+  <h3 class="text-center">{% trans 'edit topics' %}</h3>
+
+  {% for form in formset %}
+  {{ form.id }}
+  <div class="d-flex justify-content-between align-item-center mt-3">
+    <div class="pr-2">{{ form.name }}</div>
+    <button 
+      type="button"  
+      class="delete delete-topic btn btn-outline-danger button-naked btn-block button-short"
+      data-id="{{ form.id.value }}"
+      data-url="{% url 'entries:delete_topic' %}"
+      data-name="{{ form.name.value }}"
+      data-redirect="{% url 'entries:edit_topics' lang_id %}"
+      data-model="topic"
+      ><i data-feather="x"></i>
+    </button>
+  </div>
+  
+  {% if form.errors %}
+  <div class="alert alert-danger pt-0">{{ form.errors.name }}</div>
+  {% endif %}
+
+  {% endfor %}
+
+  {% if integrity_error %}
+  <div class="alert alert-danger mt-3">{{ integrity_error }}</div>
+  {% endif %}
+
+  <button type="submit" class="btn btn-outline-info btn-block mt-3">{% trans 'save all' %}</button>
+</form>
+{% endif %}
+
+<form id="get-token" hidden>
+  {% csrf_token %}
+</form>
+
+{% endblock %}

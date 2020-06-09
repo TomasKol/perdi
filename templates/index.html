@@ -1,0 +1,62 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{% endblock %}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="shortcut icon" href="{% static 'favicon.png' %}" />
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- css -->
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body class="p-2">
+  {% if user.is_authenticated %}
+  <div class="d-flex justify-content-around mb-2 pb-2 border-b">
+
+    {% if user.languages.all %}
+    <div>
+      <span>
+        <a href="{% url 'entries:index' %}" class="p-1">
+          <i data-feather="book-open"></i>
+        </a>
+      </span>
+    </div>
+    {% endif %}
+
+    <div>
+      <span>
+        <a href="{% url 'entries:my_languages' %}" class="p-1">
+          <i data-feather="settings"></i>
+        </a>
+      </span>
+    </div>
+
+    <div>
+      <span>
+        <a href="{% url 'accounts:settings' %}" class="p-1">
+          <i data-feather="user"></i>
+        </a>
+      </span>
+    </div>
+
+  </div>
+  {% endif %}
+
+  {% block content %}
+  {% endblock %}
+</body>
+
+<!-- feather icons -->
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script>feather.replace();</script>  
+<!-- js -->
+<script src="{% static 'index.js' %}"></script>
+
+</html>

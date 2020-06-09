@@ -1,0 +1,28 @@
+{% extends 'entries/entries_index.html' %}
+{% load static i18n %}
+{% block content %}
+
+<h3>{% trans 'my languages' %}</h3>
+
+{% if languages %}
+{% for lang in languages %}
+<div class="d-flex justify-content-between align-items-center my-5">
+  <div class="col-10">
+    <div>{{ lang.language.name }} {{ lang.language.abbreviation }}:</div>
+    <div>{{ lang.entries }} {% trans 'entries' %} | {{ lang.translations }} {% trans 'translations' %} | {{ lang.topics}} {% trans 'topics ' %} </div>
+  </div>
+  <div class="col-2">
+    <a href="{% url 'entries:edit_language' lang.language.id %}">
+      <i data-feather="edit"></i>
+    </a>
+  </div>
+</div>
+{% endfor %}
+
+{% else %}
+<p class="text-center mt-3">{% trans "You don't have any language set up" %}.</p>
+{% endif %}
+
+<p class="text-center"><a href="{% url 'entries:add_language' %}">{% trans 'add language' %}</a></p>
+
+{% endblock %}

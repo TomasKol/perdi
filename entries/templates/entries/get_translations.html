@@ -1,0 +1,58 @@
+{% extends 'entries/entries_navbar.html' %}
+{% load static %}
+
+{% block queries %}
+{% for translation in translations %}
+<div class="entry-container mt-3" data-name="{{ translation.content|lower }}" data-topic="{{ translation.entry.topic.name }}">
+
+  <div class="entry-basic toggled px-2" data-id="{{ translation.id }}">
+    <div class="d-flex justify-content-between">
+      
+      <div>
+        <b>{{ translation.content }}</b> - 
+        {{ translation.entry.full_name }}
+      </div>
+      
+      <div>
+        <i data-feather="more-horizontal" class="toggler toggler-detail" data-id="{{ translation.id }}"></i>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="entry-detail toggled px-2" data-id="{{ translation.id }}" style="display: none;">
+    <div class="d-flex justify-content-between">
+
+      <div>
+
+        <div>
+          <b>{{ translation.content }}</b> 
+          <i>{{ translation.note }}</i>
+        </div>
+      
+        <div>
+          <span class="pl-2">
+            <span class="mb-1">
+              <i data-feather="play"></i>
+            </span>
+            {{ translation.entry.full_name }}
+          </span>
+          <i>{{ translation.entry.commentary}}</i>
+          {% if translation.entry.topic %} 
+            ({{ translation.entry.topic.name }})
+          {% endif %}
+        </div>
+
+      </div>
+            
+      <div class="d-flex flex-column pb-2">
+        <i data-feather="more-horizontal" class="toggler toggler-detail mb-2" data-id="{{ translation.id }}"></i>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+{% endfor %}
+
+{% endblock %}

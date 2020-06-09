@@ -1,0 +1,367 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-07 15:33+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n "
+">= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+#: .\forms.py:7
+msgid "language"
+msgstr "jazyk"
+
+#: .\forms.py:7
+msgid "name of the language"
+msgstr "názov nového jazyka"
+
+#: .\forms.py:9
+msgid "abbreviation (max 4 chars)"
+msgstr "skratka (max 4 znaky)"
+
+#: .\forms.py:9
+msgid "abbreviation"
+msgstr "skratka"
+
+#: .\forms.py:17
+msgid "article"
+msgstr "člen"
+
+#: .\forms.py:27
+msgid "topic name"
+msgstr "názov témy"
+
+#: .\forms.py:37
+msgid "new word"
+msgstr "slovíčko"
+
+#: .\forms.py:43
+msgid "commentary"
+msgstr "komentár"
+
+#: .\forms.py:56
+msgid "translation*"
+msgstr "preklad*"
+
+#: .\forms.py:63
+msgid "translation note"
+msgstr "poznámka k prekladu"
+
+#: .\templates\entries\add_entry.html:12 .\templates\entries\add_entry.html:72
+msgid "add entry"
+msgstr "pridaj slovíčko"
+
+#: .\templates\entries\add_entry.html:43 .\templates\entries\edit_entry.html:50
+msgid "(no topic)"
+msgstr "(téma)"
+
+#: .\templates\entries\add_entry.html:67
+msgid ""
+"only one translation. If you want to add more meanings, check the box below "
+"before saving."
+msgstr ""
+"iba jeden preklad. Ak chceš pridať viac významov, zaškrtni políčko pod týmto "
+"textom."
+
+#: .\templates\entries\add_entry.html:69
+msgid "add more translations after saving"
+msgstr "pridať ďalšie preklady po uložení"
+
+#: .\templates\entries\add_entry.html:77
+msgid "Article"
+msgstr "Člen"
+
+#: .\templates\entries\add_entry.html:77
+msgid "the article that goes with the new word"
+msgstr "člen, ktorý patrí ku slovíčku"
+
+#: .\templates\entries\add_entry.html:79
+msgid "Edit articles"
+msgstr "Uprav členy"
+
+#: .\templates\entries\add_entry.html:83
+msgid "New word"
+msgstr "Nové slovíčko"
+
+#: .\templates\entries\add_entry.html:83
+msgid "the word itself"
+msgstr "samotné nové slovo"
+
+#: .\templates\entries\add_entry.html:84
+msgid "Commentary"
+msgstr "Komentár"
+
+#: .\templates\entries\add_entry.html:84
+msgid ""
+"your commentary on the new word. E.g. irregularities, contextual meaning, "
+"grammatical info, trivia"
+msgstr ""
+"tvoj komentár k novému slovíčku. Napr. poznámky k nepravidelným tvarom, info "
+"o gramatike, atď."
+
+#: .\templates\entries\add_entry.html:86
+msgid "Topic"
+msgstr "Téma"
+
+#: .\templates\entries\add_entry.html:86
+msgid "only one topic per word. Useful for precise search in the dictionary"
+msgstr "iba jedna téma. Uľahčuje vyhľadávanie v slovníku"
+
+#: .\templates\entries\add_entry.html:88
+msgid "Edit topics"
+msgstr "Uprav témy"
+
+#: .\templates\entries\add_entry.html:92
+msgid "Translation"
+msgstr "Preklad"
+
+#: .\templates\entries\add_entry.html:92
+msgid ""
+"save each translation one by one, so you can search for the foreign word by "
+"<i>any</i> of them"
+msgstr ""
+"každý preklad ulož osobitne - tak budeš môcť vyhľadávať v prekladoch poďľa "
+"<i>hociktorého</i> z nich"
+
+#: .\templates\entries\add_entry.html:93
+msgid "Translation note"
+msgstr "Poznámka k prekladu"
+
+#: .\templates\entries\add_entry.html:93
+msgid "your commentary on the particular translation"
+msgstr "tvoj komentár k tomuto konkrétnemu prekladu"
+
+#: .\templates\entries\add_language.html:6
+#: .\templates\entries\languages.html:26
+msgid "add language"
+msgstr "pridaj jazyk"
+
+#: .\templates\entries\add_language.html:20
+#: .\templates\entries\edit_articles.html:12
+msgid "comma, separated, articles"
+msgstr "čiarkou, oddelené, členy"
+
+#: .\templates\entries\add_language.html:20
+#: .\templates\entries\edit_articles.html:12
+msgid "comma-separated articles (e.g. a, an, the)"
+msgstr "čiarkou oddelené členy (napr. a, an, the)"
+
+#: .\templates\entries\add_language.html:22
+msgid "create"
+msgstr "ulož"
+
+#: .\templates\entries\add_language.html:32
+msgid "is aready in your languages"
+msgstr "už existuje"
+
+#: .\templates\entries\add_language.html:39
+msgid "Language"
+msgstr "Jazyk"
+
+#: .\templates\entries\add_language.html:39
+msgid "the name of the foreign language"
+msgstr "názov nového jazyka"
+
+#: .\templates\entries\add_language.html:40
+#: .\templates\entries\edit_language.html:86
+msgid "Abbreviation"
+msgstr "Skratka"
+
+#: .\templates\entries\add_language.html:40
+msgid ""
+"a short version of the language's name. Up to 4 characters. Will be used "
+"throughout the entire perdi application"
+msgstr ""
+"krátka verzia názvu jazyka. Max 4 znaky. Bude sa používať v celom perdi"
+
+#: .\templates\entries\add_language.html:41
+msgid "Articles"
+msgstr "Členy"
+
+#: .\templates\entries\add_language.html:41
+msgid ""
+"if the language uses articles, write them all, separated by a comma. E.g. "
+"el, la, los, las"
+msgstr ""
+"ak sa v tomto jazyku používajú členy, napíš ich sem naraz, oddelené čiarkou. "
+"Napr. el, la, los, las"
+
+#: .\templates\entries\edit_articles.html:11
+#: .\templates\entries\edit_articles.html:14
+msgid "add articles"
+msgstr "pridaj členy"
+
+#: .\templates\entries\edit_articles.html:13
+msgid ""
+"new articles separated by a comma. E.g. 'el, la, los, las'. Note that max "
+"length of one article is 5 characters"
+msgstr ""
+"nové členy oddelené čiarkou. Napr. 'el, la, los, las'. Jeden člen môže mať "
+"najviac 5 znakov"
+
+#: .\templates\entries\edit_articles.html:22
+msgid "edit articles"
+msgstr "uprav členy"
+
+#: .\templates\entries\edit_articles.html:50
+#: .\templates\entries\edit_topics.html:52
+msgid "save all"
+msgstr "ulož"
+
+#: .\templates\entries\edit_entry.html:59
+msgid "save changes"
+msgstr "ulož zmeny"
+
+#: .\templates\entries\edit_entry.html:67
+#: .\templates\entries\edit_entry.html:90
+msgid "add translation"
+msgstr "pridaj preklad"
+
+#: .\templates\entries\edit_entry.html:89
+msgid "one translation at a time"
+msgstr "preklady pridávaj po jednom"
+
+#: .\templates\entries\edit_entry.html:97
+msgid "edit translations"
+msgstr "uprav preklady"
+
+#: .\templates\entries\edit_entry.html:142
+msgid "save all translations"
+msgstr "uprav preklady"
+
+#: .\templates\entries\edit_entry.html:156
+#: .\templates\entries\edit_language.html:75
+msgid "delete"
+msgstr "vymaž"
+
+#: .\templates\entries\edit_language.html:20
+msgid "<b>save</b> changes"
+msgstr "<b>ulož</b> zmeny"
+
+#: .\templates\entries\edit_language.html:24
+msgid "articles"
+msgstr "členy"
+
+#: .\templates\entries\edit_language.html:34
+msgid "edit <b>articles</b>"
+msgstr "uprav <b>členy</b>"
+
+#: .\templates\entries\edit_language.html:36
+msgid "add <b>articles</b>"
+msgstr "pridaj <b>členy</b>"
+
+#: .\templates\entries\edit_language.html:43
+msgid "topics"
+msgstr "témy"
+
+#: .\templates\entries\edit_language.html:53
+msgid "edit <b>topics</b>"
+msgstr "uprav <b>témy</b>"
+
+#: .\templates\entries\edit_language.html:55
+msgid "add <b>topics</b>"
+msgstr "pridaj <b>témy</b>"
+
+#: .\templates\entries\edit_language.html:63
+msgid "add <b>new words</b>"
+msgstr "pridaj <b>nové slovíčka</b>"
+
+#: .\templates\entries\edit_language.html:86
+msgid "is already used by another language"
+msgstr "sa už používa pri inom jazyku"
+
+#: .\templates\entries\edit_topics.html:13
+#: .\templates\entries\edit_topics.html:16
+msgid "add topics"
+msgstr "pridaj témy"
+
+#: .\templates\entries\edit_topics.html:14
+msgid "comma, separated, topics"
+msgstr "čiarkou, oddelené, témy"
+
+#: .\templates\entries\edit_topics.html:14
+msgid "comma-separated topics (e.g. art, sport, cuisine)"
+msgstr "čiarkou oddelené témy (napr. umenie, šport, varenie)"
+
+#: .\templates\entries\edit_topics.html:15
+msgid "new topics separated by a comma. E.g. art, sport, cuisine"
+msgstr "nové témy oddelené čiarkou (napr. umenie, šport, varenie)"
+
+#: .\templates\entries\edit_topics.html:24
+msgid "edit topics"
+msgstr "uprav témy"
+
+#: .\templates\entries\entries_index.html:3
+msgid "en"
+msgstr "sk"
+
+#: .\templates\entries\entries_index.html:4
+msgid "Perdi - personal dictionary"
+msgstr "Perdi - osobný slovník"
+
+#: .\templates\entries\entries_navbar.html:40
+msgid "search..."
+msgstr "hľadaj..."
+
+#: .\templates\entries\entries_navbar.html:46
+msgid "all topics"
+msgstr "všetky témy"
+
+#: .\templates\entries\languages.html:5
+msgid "my languages"
+msgstr "jazyky"
+
+#: .\templates\entries\languages.html:12
+msgid "entries"
+msgstr "slovíčok"
+
+#: .\templates\entries\languages.html:12
+msgid "translations"
+msgstr "prekladov"
+
+#: .\templates\entries\languages.html:12
+msgid "topics "
+msgstr "tém"
+
+#: .\templates\entries\languages.html:23
+msgid "You don't have any language set up"
+msgstr "Nemáš vytvorený žiadny jazyk"
+
+#: .\views.py:194
+msgid "Each article must be unique. Please avoid duplicates."
+msgstr "Každý člen musí byť unikátny. Prosím, vyhýbaj sa duplikátom."
+
+#: .\views.py:277
+msgid "Each topic must be unique. Please avoid duplicates."
+msgstr "Každá téma musí byť unikátna. Prosím, vyhýbaj sa duplikátom."
+
+#: .\views.py:343
+msgid "Such entry already exists."
+msgstr "Také slovíčko už v slovníku máš."
+
+#: .\views.py:421
+msgid "already is in your dictionary."
+msgstr "už je v tvojom slovníku."
+
+#: .\views.py:472
+msgid "Each translation must be unique. Please avoid duplicates."
+msgstr "Každý preklad musí byť unikátny. Prosím, vyhýbaj sa duplikátom."
+
+#: .\views.py:515
+msgid "This entry already has the same translation."
+msgstr "Toto slovíčko už takýto preklad má uložený."
+
+#~ msgid "new translation*"
+#~ msgstr "nový preklad*"

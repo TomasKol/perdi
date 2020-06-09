@@ -1,0 +1,45 @@
+{% extends 'accounts/accounts_index.html' %}
+{% load static i18n %}
+{% block content %}
+  <h3>{% trans 'my account' %}</h3>
+
+  <div class="d-flex justify-content-start align-items-center mb-2 mt-3">
+    <div>{% trans 'display perdi in' %}</div>
+    <div id="change-language" class="ml-2">
+      {% get_current_language as display_lang %}
+      {% get_available_languages as LANGUAGES %}
+      {% get_language_info_list for LANGUAGES as available_languages %}
+      <form class="" id="perdi-language-form" action="{% url 'set_language' %}" method="POST">
+        <div class="form-row align-items-center">
+          {% csrf_token %}
+  
+          <div>
+            <select name="language" id="perdi-language-select" class="custom-select form-low py-0">
+              {% for language in available_languages %}
+              <option 
+                value="{{ language.code }}"
+                {% if language.code == display_lang %} selected="selected" {% endif %}
+                >{{ language.name_local }} {{ language.code }}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <a href="{% url 'accounts:change_password' %}">{% trans 'change password' %}</a>
+  </div>
+
+  <div class="mb-3">
+    <a href="{% url 'accounts:logout' %}" onclick="localStorage.clear();">{% trans 'log out' %}</a>
+  </div>
+
+  <div class="mb-3">
+    <a class="link-danger" href="{% url 'accounts:delete_user' %}" onclick="localStorage.clear();">{% trans 'delete account' %}</a>
+  </div>
+
+  {% endblock %}

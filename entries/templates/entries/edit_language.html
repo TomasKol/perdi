@@ -1,0 +1,96 @@
+{% extends 'entries/entries_index.html' %}
+{% load static i18n %}
+{% block content %}
+<h3 class="text-center">{{ language.name }} 
+  <span class="text-uppercase">| {{ language.abbreviation }}</span> 
+</h3>
+  <form action="{% url 'entries:edit_language' language.id %}" method="POST" class="site-form col-6">
+    {% csrf_token %} 
+
+    {{ form.name }}
+    {% if form.errors.name %}
+    <div class="alert alert-danger">{{ form.errors.name }}</div>
+    {% endif %}
+
+    {{ form.abbreviation }}
+    {% if form.errors.abbreviation %}
+    <div class="alert alert-danger">{{ form.errors.abbreviation }}</div>
+    {% endif %}
+
+    <button type="submit" class="btn btn-outline-info btn-block mt-1">{% trans '<b>save</b> changes' %}</button>
+
+    {% if articles %}
+    <div class="mt-3 text-justify">
+      <b>{% trans 'articles' %}:</b>
+      {% for article in articles %}
+        {{ article.name }},
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div>
+      <a href="{% url 'entries:edit_articles' language.id %}" class="btn btn-outline-info btn block mt-1">
+        {% if articles %}
+        {% trans 'edit <b>articles</b>' %}
+        {% else %}
+        {% trans 'add <b>articles</b>' %}
+        {% endif %}
+      </a>
+    </div>
+
+    {% if language.topics.all %}
+    <div class="mt-3 text-justify">
+      <b>{% trans 'topics' %}:</b>
+      {% for topic in language.topics.all %}
+        {{ topic.name }},
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div>
+      <a href="{% url 'entries:edit_topics' language.id %}" class="btn btn-outline-info btn block mt-1">
+        {% if language.topics.all %}
+        {% trans 'edit <b>topics</b>' %}
+        {% else %}
+        {% trans 'add <b>topics</b>' %}
+        {% endif %}
+      </a>
+    </div>
+
+    <div>
+      <!-- <a href="{% url 'entries:add_entry' %}" class="btn btn-outline-info btn block mt-1"> -->
+      <a href="{% url 'accounts:set_current_language' language.id %}" class="btn btn-outline-info btn block mt-1">
+        {% trans 'add <b>new words</b>' %}
+      </a>
+    </div>
+
+    <button 
+      type="button" 
+      class="delete delete-language btn btn-outline-danger btn-block mt-3"
+      data-name="{{ language.name }}"
+      data-id="{{ language.id }}"
+      data-url="{% url 'entries:delete_language' %}"
+      data-redirect="{% url 'entries:my_languages' %}"
+      data-model="language"
+      ><b>{% trans 'delete' %}</b> {{ language.name }}
+    </button>
+
+    {% if form.non_field_errors %}
+    <div class="alert alert-danger">
+    {{ form.non_field_errors }}
+    </div>
+    {% endif %}
+
+    {% if duplicit %}
+    <div class="alert alert-danger">
+      {% trans 'Abbreviation' %} '{{ abbreviation }}' {% trans 'is already used by another language' %}.
+    </div>
+    {% endif %}
+
+  </form>
+
+<form id="get-token" hidden>
+  {% csrf_token %}
+</form>
+
+{% endblock %}
